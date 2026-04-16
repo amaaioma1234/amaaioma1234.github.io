@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Course</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <header>
+        <h1>Personal Course Organizer</h1>
+        <p>Enhance your learning journey and organize your courses, all in one place.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="MyCourses.html">My Courses</a></li>
+            <li><a href="AddCourse.html">Add Course</a></li>
+            <li><a href="Contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Add a New Course</h2>
+            <form id="courseForm">
+                <div class="form-group">
+                    <label for="courseName">Course Name:</label>
+                    <input type="text" id="courseName" name="courseName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="instructor">Instructor:</label>
+                    <input type="text" id="instructor" name="instructor" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="credits">Credit Hours:</label>
+                    <input type="number" id="credits" name="credits" min="1" max="6" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Notes:</label>
+                    <textarea id="notes" name="notes" rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Add Course</button>
+            </form>
+            <p id="formMessage" class="form-message"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p><b><i>Abdurrahman 20250566</i></b></p>
+    </footer>
+
+    <script>
+        document.getElementById('courseForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('courseName').value;
+            const msg = document.getElementById('formMessage');
+            msg.textContent = `"${name}" has been added to your courses!`;
+            msg.style.color = 'green';
+            this.reset();
+            setTimeout(() => { msg.textContent = ''; }, 3000);
+        });
+    </script>
+</body>
+</html>
