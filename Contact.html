@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Personal Course Organizer</h1>
+        <p>Enhance your learning journey and organize your courses, all in one place.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="MyCourses.html">My Courses</a></li>
+            <li><a href="AddCourse.html">Add Course</a></li>
+            <li><a href="Contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>Email: AbdurrahmanMohammed@HelwanUniversity.com</p>
+                    <p>Phone: 20250566</p>
+                    <p>Address: HelwanUniversity</p>
+                </div>
+                
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name:</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email:</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+            <p id="contactMessage" class="form-message"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p><b><i>Abdurrahman 20250566</i></b></p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const msg = document.getElementById('contactMessage');
+            msg.textContent = `Thanks ${name}! We'll get back to you soon.`;
+            msg.style.color = 'green';
+            this.reset();
+            setTimeout(() => { msg.textContent = ''; }, 3000);
+        });
+    </script>
+</body>
+</html>
